@@ -1,5 +1,7 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import './App.css'
+import DefaultLayout from './layouts/DefaultLayout'
+import HomePage from '../pages/HomePage'
 
 function App() {
 
@@ -9,7 +11,11 @@ function App() {
       <BrowserRouter>
 
         <Routes>
-          <Route />
+          <Route element={<DefaultLayout />}>
+            <Route path='/' index element={<HomePage />} />
+            <Route path='/:id' element={<JourneyPage />} />
+
+          </Route>
         </Routes>
 
       </BrowserRouter>
