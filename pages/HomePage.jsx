@@ -6,6 +6,8 @@ export default function HomePage() {
 
     const [data, setData] = useState(database)
 
+
+
     return (
         <>
             <section>
@@ -15,7 +17,7 @@ export default function HomePage() {
                         {
                             data.map(journey =>
                                 <div key={journey.id} className="col">
-                                    <Link to={`/${movie.id}`} >
+                                    <Link to={`/${journey.id}`} >
                                         <div className="card rounded">
                                             <h1>{journey.meta}</h1>
                                             <p>{journey.data_partenza}</p>
