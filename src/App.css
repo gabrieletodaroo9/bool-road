@@ -11,3 +11,19 @@ a {
 .card:hover {
     scale: 1.04;
 }
+
+.accordion-button:not(.collapsed) {
+    background-color: #dfdada;
+}
+
+.bg-accordion {
+    background-color: #e5e2e2;
+}
+
+.text-accordion {
+    color: #052c65;
+}
+
+.accordion-button:focus {
+    box-shadow: none;
+}
