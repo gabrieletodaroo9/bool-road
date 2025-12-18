@@ -1,6 +1,7 @@
 import { useState } from "react";
 import database from "../data"
 import { Link } from "react-router-dom";
+import Card from "../src/components/Card";
 
 export default function HomePage() {
 
@@ -10,19 +11,15 @@ export default function HomePage() {
 
     return (
         <>
-            <section>
+            <section className="bg-light">
                 <div className="container">
-                    <h1></h1>
-                    <div className="row row-cols-2 row-cols-md-3 row-cols-lg-4">
+                    <h1 className="text-center my-5 pb-5 fw-bold">Viaggi</h1>
+                    <div className="row mb-5 g-5">
                         {
                             data.map(journey =>
-                                <div key={journey.id} className="col">
+                                <div key={journey.id} className="col-12 col-md-6 mt-3">
                                     <Link to={`/${journey.id}`} >
-                                        <div className="card rounded">
-                                            <h1>{journey.meta}</h1>
-                                            <p>{journey.data_partenza}</p>
-                                            <p>{journey.data_ritorno}</p>
-                                        </div>
+                                        <Card journey={journey} />
                                     </Link>
 
                                 </div>

@@ -4,7 +4,7 @@ const database = [
         meta: "Parigi, Francia",
         data_partenza: "2024-05-15",
         data_ritorno: "2024-05-22",
-        immagine: "https://example.com/images/paris.jpg",
+        immagine: "https://www.bigbustours.com/media/wysiwyg/Article-Images-2020/Paris/BBT-Top10-Article-IMG-2-EiffelTower.jpg",
         partecipanti: [
             {
                 id: 1,
@@ -45,7 +45,7 @@ const database = [
         meta: "Tokyo, Giappone",
         data_partenza: "2024-10-10",
         data_ritorno: "2024-10-25",
-        immagine: "https://example.com/images/tokyo.jpg",
+        immagine: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTCNRLsC3inJLBYXiwT2PVYFijCHUDC1Zoz9Q&s",
         partecipanti: [
             {
                 id: 1,
@@ -86,7 +86,7 @@ const database = [
         meta: "New York, USA",
         data_partenza: "2024-12-05",
         data_ritorno: "2024-12-15",
-        immagine: "https://example.com/images/nyc.jpg",
+        immagine: "https://res.cloudinary.com/dtljonz0f/image/upload/c_auto,ar_4:3,w_3840,g_auto/f_auto/q_auto/v1/gc-v1/new-york/shutterstock_2142178205_yxfbc3?_a=BAVAZGE70",
         partecipanti: [
             {
                 id: 1,
