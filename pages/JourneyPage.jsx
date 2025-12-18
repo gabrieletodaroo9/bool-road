@@ -10,7 +10,6 @@ export default function JourneyPage() {
     const [data, setData] = useState(database)
     const [search, setSearch] = useState('')
     const { id } = useParams()
-    const [active, setActive] = useState(0)
 
     const current = data.find(current => Number(id) === current.id)
 
