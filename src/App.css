@@ -1,16 +1,25 @@
+/* RESET */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* GENERICS */
+
 a {
     text-decoration: none;
     color: white;
 }
 
-* {
-    padding: 0;
-    margin: 0;
-}
+/* UTILS */
 
 .card:hover {
     scale: 1.04;
 }
+
+/* ACCORDION */
 
 .accordion-button:not(.collapsed) {
     background-color: #dfdada;

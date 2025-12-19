@@ -19,9 +19,7 @@ export default function HomePage() {
                                     <Link to={`/${journey.id}`} >
                                         <Card journey={journey} />
                                     </Link>
-
                                 </div>
-
                             )
                         }
                     </div>

@@ -6,7 +6,7 @@ export default function DetailsCard({ currentjourney }) {
         <>
             <div className="row g-3 my-3">
                 <div className="col-4 p-5">
-                    <img className="w-100 h-100 object-fit-cover rounded-5" src={immagine} alt="" />
+                    <img className="w-100 object-fit-cover rounded-5" src={immagine} alt="" />
                 </div>
                 <div className="col-4  py-5 pe-5 rounded-5">
                     <div className="d-flex flex-column justify-content-center align-items-center h-100 gap-5 ps-3 ">

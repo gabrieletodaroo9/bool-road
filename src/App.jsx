@@ -15,7 +15,6 @@ function App() {
           <Route element={<DefaultLayout />}>
             <Route path='/' index element={<HomePage />} />
             <Route path='/:id' element={<JourneyPage />} />
-
           </Route>
         </Routes>
 
