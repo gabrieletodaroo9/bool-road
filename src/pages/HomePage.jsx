@@ -2,6 +2,7 @@ import { useState } from "react";
 import database from "../../data"
 import { Link } from "react-router-dom";
 import Card from "../components/Card";
+import FormJourney from "../components/FormJourney";
 
 export default function HomePage() {
 
@@ -12,6 +13,7 @@ export default function HomePage() {
             <section className="bg-light">
                 <div className="container">
                     <h1 className="text-center py-5 fw-bold">Viaggi in corso</h1>
+                    <FormJourney setData={setData} data={data} />
                     <div className="row my-5 mb-5 g-5">
                         {
                             data.map(journey =>

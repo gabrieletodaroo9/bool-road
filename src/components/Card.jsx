@@ -15,7 +15,7 @@ export default function Card({ journey }) {
 
                             <div><strong>Data partenza: </strong>{data_partenza}</div>
                             <div><strong>Data ritorno: </strong>{data_ritorno}</div>
-                            <div><strong>Partecipanti: </strong>{partecipanti.length}</div>
+                            <div><strong>Partecipanti: </strong>{partecipanti?.length}</div>
                         </div>
                     </div>
                 </div>
