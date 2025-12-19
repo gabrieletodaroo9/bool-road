@@ -2,6 +2,7 @@ export default function DetailsCard({ currentjourney }) {
 
     const { immagine, meta, data_partenza, data_ritorno, accompagnatori } = currentjourney
 
+
     return (
         <>
             <div className="row g-3 my-3">
@@ -18,11 +19,13 @@ export default function DetailsCard({ currentjourney }) {
                 <div className="col-4  py-5 pe-5 rounded-5">
                     <div className="d-flex flex-column justify-content-center align-items-center h-100 gap-3 ps-3 ">
                         <h3 className="mb-1">Accompagnatori</h3>
-                        {
+                        {accompagnatori.length > 0 ? (
                             accompagnatori.map(accompagnatore => (
                                 <p key={accompagnatore.id}>{`${accompagnatore.nome} ${accompagnatore.cognome}`}</p>
                             ))
-                        }
+                        ) : (
+                            <p className="text-muted small">Nessun accompagnatore</p>
+                        )}
                     </div>
                 </div>
             </div>

@@ -1,19 +1,21 @@
 import { useParams } from "react-router-dom"
-import database from "../../data"
+// import database from "../../data"
 import { useState } from "react"
 import DetailsCard from "../components/DetailsCard"
 import { Link } from "react-router-dom"
 
-export default function JourneyPage() {
+export default function JourneyPage({ data, setData }) {
 
 
-    const [data, setData] = useState(database)
+    // const [data, setData] = useState(database)
     const [search, setSearch] = useState('')
     const { id } = useParams()
 
     const current = data.find(current => Number(id) === current.id)
 
-    const filteredPartecipanti = current.partecipanti.filter(partecipante => {
+    const partecipanti = current?.partecipanti || [];
+
+    const filteredPartecipanti = partecipanti.filter(partecipante => {
         const fullName = `${partecipante.nome} ${partecipante.cognome}`.toLowerCase()
         return fullName.includes(search.toLowerCase())
     })
@@ -35,7 +37,7 @@ export default function JourneyPage() {
                 <div className="row row-cols-1">
 
                     <div className="accordion">
-                        {filteredPartecipanti.map(user => {
+                        {filteredPartecipanti?.map(user => {
                             const headingId = `heading-${user.id}`;
                             const collapseId = `collapse-${user.id}`;
 

@@ -1,12 +1,12 @@
-import { useState } from "react";
-import database from "../../data"
+// import { useState } from "react";
+// import database from "../../data"
 import { Link } from "react-router-dom";
 import Card from "../components/Card";
 import FormJourney from "../components/FormJourney";
 
-export default function HomePage() {
+export default function HomePage({ data, setData }) {
 
-    const [data, setData] = useState(database)
+    // const [data, setData] = useState(database)
 
     return (
         <>

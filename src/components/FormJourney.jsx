@@ -1,26 +1,27 @@
 import { useState } from "react";
 
-export default function FormJourney({ setData, data }) {
+const DEFAULT_IMAGE = "https://community.softr.io/uploads/db9110/original/2X/7/74e6e7e382d0ff5d7773ca9a87e6f6f8817a68a6.jpeg";
 
-    // use tate per il form
+export default function FormJourney({ setData, data }) {
     const [form, setForm] = useState({
         nazione: "",
         citta: "",
         dataInizio: "",
         dataFine: "",
-        immagine: null,
+        immagine: DEFAULT_IMAGE,
+        partecipanti: [],
+        accompagnatori: []
     });
 
-    //scrittura dei vai campi
     const handleChange = (e) => {
         const { name, value, files } = e.target;
+
         setForm((prev) => ({
             ...prev,
-            [name]: files ? files[0] : value,
+            [name]: files ? URL.createObjectURL(files[0]) : value,
         }));
     };
 
-    //funzione che si attiva al submit del form
     const handleSubmit = (e) => {
         e.preventDefault();
 
@@ -30,47 +31,41 @@ export default function FormJourney({ setData, data }) {
             data_partenza: form.dataInizio,
             data_ritorno: form.dataFine,
             immagine: form.immagine,
+            accompagnatori: [{ id: 301, nome: "Frank", cognome: "Miller" },
+            { id: 302, nome: "Valentina", cognome: "Romano" }],
+            partecipanti: [{ id: 1, nome: "Davide", cognome: "Gallo", codice_fiscale: "GLLDVD77B14H501P", email: "davide.gallo@gmail.com", numero: "+39 333 7788990" },
+            { id: 2, nome: "Martina", cognome: "Costa", codice_fiscale: "CSTMTN89E50L736O", email: "m.costa@alice.it", numero: "+39 349 6677889" }]
         };
 
-        //aggiorno l'array pre-esistente
-        setData(data => [...data, nuovoViaggio]);
+        setData(prevData => [nuovoViaggio, ...prevData]);
 
-        console.log("Nuovo viaggio creato:", nuovoViaggio);
-
-        // reset form
         setForm({
             nazione: "",
             citta: "",
             dataInizio: "",
             dataFine: "",
-            immagine: null,
+            immagine: DEFAULT_IMAGE,
+            accompagnatori: [],
+            partecipanti: []
         });
     };
 
-
-
-
     return (
-        <>
-
-            <div className="d-flex justify-content-end align-items-center">
-                <button
-                    className="btn btn-dark"
-                    type="button"
-                    data-bs-toggle="offcanvas"
-                    data-bs-target="#offcanvasViaggio">
-                    Aggiungi nuovo viaggio
-                </button>
-            </div>
+        <><div className="d-flex justify-content-end align-items-center">
+            <button className="btn btn-dark w-25 me-4 rounded-pill py-2 px-4 fw-bold"
+                data-bs-toggle="offcanvas"
+                data-bs-target="#offcanvasViaggio">
+                Nuovo viaggio
+            </button>
+        </div>
 
 
 
             <div
-                className="offcanvas offcanvas-start"
+                className="offcanvas offcanvas-end"
                 tabIndex="-1"
                 id="offcanvasViaggio"
-                aria-labelledby="offcanvasViaggioLabel"
-            >
+                aria-labelledby="offcanvasViaggioLabel" >
                 <div className="offcanvas-header border-bottom">
                     <h5 id="offcanvasViaggioLabel">Crea viaggio</h5>
                     <button
@@ -82,60 +77,20 @@ export default function FormJourney({ setData, data }) {
 
                 <div className="offcanvas-body">
                     <form onSubmit={handleSubmit} className="d-flex flex-column gap-3">
-                        <input
-                            type="text"
-                            className="form-control"
-                            placeholder="Nazione"
-                            name="nazione"
-                            value={form.nazione}
-                            onChange={handleChange}
-                            required
-                        />
 
-                        <input
-                            type="text"
-                            className="form-control"
-                            placeholder="CittÃ "
-                            name="citta"
-                            value={form.citta}
-                            onChange={handleChange}
-                            required
-                        />
 
-                        <input
-                            type="date"
-                            className="form-control"
-                            name="dataInizio"
-                            value={form.dataInizio}
-                            onChange={handleChange}
-                            required
-                        />
+                        <input type="text" className="form-control" placeholder="Nazione" name="nazione" value={form.nazione} onChange={handleChange} required />
+                        <input type="text" className="form-control" placeholder="Città" name="citta" value={form.citta} onChange={handleChange} required />
+                        <input type="date" className="form-control" name="dataInizio" value={form.dataInizio} onChange={handleChange} required />
+                        <input type="date" className="form-control" name="dataFine" value={form.dataFine} onChange={handleChange} required />
 
-                        <input
-                            type="date"
-                            className="form-control"
-                            name="dataFine"
-                            value={form.dataFine}
-                            onChange={handleChange}
-                            required
-                        />
+                        <label className="form-label small text-muted">Cambia immagine copertina (opzionale)</label>
+                        <input type="file" className="form-control" name="immagine" onChange={handleChange} accept="image/*" />
 
-                        <input
-                            type="file"
-                            className="form-control"
-                            name="immagine"
-                            accept="image/*"
-                            onChange={handleChange}
-                        />
-
-                        <button type="submit" className="btn btn-success mt-2">
-                            Crea viaggio
-                        </button>
+                        <button type="submit" className="btn btn-warning mt-2">Crea viaggio</button>
                     </form>
                 </div>
             </div>
-
-
         </>
-    )
+    );
 }
