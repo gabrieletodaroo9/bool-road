@@ -11,8 +11,8 @@ export default function HomePage() {
         <>
             <section className="bg-light">
                 <div className="container">
-                    <h1 className="text-center my-5 pb-4 fw-bold">Viaggi in corso</h1>
-                    <div className="row mb-5 g-5">
+                    <h1 className="text-center py-5 fw-bold">Viaggi in corso</h1>
+                    <div className="row my-5 mb-5 g-5">
                         {
                             data.map(journey =>
                                 <div key={journey.id} className="col-12 col-md-6 mt-3 px-5">
